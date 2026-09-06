@@ -15,7 +15,7 @@ class VerifyOtpScreen extends StatefulWidget {
 
 class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
   final TextEditingController _emailTEController = TextEditingController();
-  
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
@@ -40,7 +40,6 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
 
                   const SizedBox(height: 24),
                   TextFormField(
-                    controller: _emailTEController,
                     textInputAction: .next,
                     keyboardType: .emailAddress,
                     decoration: InputDecoration(hintText: 'Email'),
@@ -48,7 +47,6 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                   ),
                   const SizedBox(height: 8),
                   TextFormField(
-                    controller: _firstNameTEController,
                     textInputAction: .next,
                     validator: (input) => Validators.validateText(
                       input,
@@ -58,7 +56,6 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                   ),
                   const SizedBox(height: 8),
                   TextFormField(
-                    controller: _lastNameTEController,
                     textInputAction: .next,
                     validator: (input) => Validators.validateText(
                       input,
@@ -68,14 +65,12 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                   ),
                   const SizedBox(height: 8),
                   TextFormField(
-                    controller: _mobileTEController,
                     textInputAction: .next,
                     validator: (input) => Validators.validatePhoneNumber(input),
                     decoration: InputDecoration(hintText: 'Mobile'),
                   ),
                   const SizedBox(height: 8),
                   TextFormField(
-                    controller: _cityTEController,
                     textInputAction: .next,
                     validator: (input) => Validators.validateText(
                       input,
@@ -85,7 +80,6 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                   ),
                   const SizedBox(height: 8),
                   TextFormField(
-                    controller: _passwordTEController,
                     textInputAction: .next,
                     obscureText: true,
                     obscuringCharacter: '*',
