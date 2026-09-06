@@ -1,3 +1,6 @@
 {
-    "version" : "Version DE"
+    "version" : "Version DE", 
+    "signUpSubTitle" : "Create an account with details DE",
+    "alreadyHaveAnAccount": "Already Have an account? DE",
+    "signIn" : "Sign In DE"
 }

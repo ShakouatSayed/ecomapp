@@ -1,6 +1,8 @@
 import 'package:ecomapp/app/extensions/localization_extension.dart';
+import 'package:ecomapp/app/extensions/utility_extension.dart';
 import 'package:ecomapp/app/providers/local_provider.dart';
 import 'package:ecomapp/app/providers/theme_provider.dart';
+import 'package:ecomapp/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:ecomapp/features/auth/presentation/widgets/app_logo.dart';
 import 'package:ecomapp/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +18,21 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _moveToNextScreen();
+  }
+
+  Future<void> _moveToNextScreen() async {
+    await Future.delayed(Duration(seconds: 2));
+    Navigator.pushNamedAndRemoveUntil(
+      context,
+      SignUpScreen.name,
+      (predicate) => false,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final localizations = context.localization;
