@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "844121649262",
+    "project_id": "studentinformation-25cb2",
+    "storage_bucket": "studentinformation-25cb2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844121649262:android:96b5f6ea487a9c6aae367f",
+        "android_client_info": {
+          "package_name": "com.example.ecomapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBda67kHGSBB1LaW01tHAv7mm6aCSIkuKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:844121649262:android:5f88e270d0449766ae367f",
+        "android_client_info": {
+          "package_name": "com.example.studentinformation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBda67kHGSBB1LaW01tHAv7mm6aCSIkuKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
