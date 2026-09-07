@@ -3,6 +3,10 @@ import 'package:ecomapp/features/auth/presentation/screens/splash_screen.dart';
 import 'package:ecomapp/features/auth/presentation/screens/verify_otp_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../features/auth/presentation/screens/main_nav_holder_screen.dart'
+    show MainNavHolderScreen;
+import '../features/auth/presentation/screens/sign_in_screen.dart';
+
 class AppRoutes {
   static Route<dynamic>? onGeneateRoute(RouteSettings settings) {
     late Widget widget;
@@ -16,6 +20,12 @@ class AppRoutes {
 
       case VerifyOtpScreen.name:
         widget = VerifyOtpScreen();
+
+      case SignInScreen.name:
+        widget = SignInScreen();
+
+      case MainNavHolderScreen.name:
+        widget = MainNavHolderScreen();
     }
 
     return MaterialPageRoute(builder: (_) => widget);

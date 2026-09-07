@@ -5,6 +5,8 @@ import 'package:ecomapp/features/auth/presentation/screens/verify_otp_screen.dar
 import 'package:ecomapp/features/auth/presentation/widgets/app_logo.dart';
 import 'package:flutter/material.dart';
 
+import 'sign_in_screen.dart';
+
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
@@ -40,7 +42,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   const SizedBox(height: 24),
                   Text('Sign Up', style: context.textTheme.titleLarge),
                   Text(
-                    'Create an account with details',
+                    context.localization.signUpSubTitle,
                     style: context.textTheme.labelLarge,
                   ),
 
@@ -132,7 +134,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  void _onTapSignInButton() {}
+  void _onTapSignInButton() {
+    Navigator.pushNamed(context, SignInScreen.name);
+  }
 
   void _onTapSingUpButton() {
     Navigator.pushNamed(context, VerifyOtpScreen.name);

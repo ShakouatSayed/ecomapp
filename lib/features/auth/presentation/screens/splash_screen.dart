@@ -1,12 +1,12 @@
-import 'package:ecomapp/app/extensions/localization_extension.dart';
 import 'package:ecomapp/app/extensions/utility_extension.dart';
 import 'package:ecomapp/app/providers/local_provider.dart';
 import 'package:ecomapp/app/providers/theme_provider.dart';
 import 'package:ecomapp/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:ecomapp/features/auth/presentation/widgets/app_logo.dart';
-import 'package:ecomapp/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'main_nav_holder_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(Duration(seconds: 2));
     Navigator.pushNamedAndRemoveUntil(
       context,
-      SignUpScreen.name,
+      MainNavHolderScreen.name,
       (predicate) => false,
     );
   }

@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:provider/provider.dart';
 
+import '../widgets/resend_otp_section.dart';
+
 class VerifyOtpScreen extends StatefulWidget {
   const VerifyOtpScreen({super.key});
 
@@ -21,6 +23,12 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final ResendOtpProvider _resendOtpProvider = ResendOtpProvider();
+
+  @override
+  void initState() {
+    super.initState();
+    _resendOtpProvider.startResendOtpTimer();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +72,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                       child: Text('Verify'),
                     ),
                     const SizedBox(height: 16),
+                    ResendOtpSection(),
                   ],
                 ),
               ),

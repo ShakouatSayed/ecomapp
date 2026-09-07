@@ -7,7 +7,7 @@ class ResendOtpProvider extends ChangeNotifier {
   int get resendOtptimer => _resendOtpTimer;
 
   Timer? _timer;
-
+  bool get isTimerRunning => _timer != null;
   Future<void> startResendOtpTimer() async {
     _timer = null;
     _resendOtpTimer = 120;
@@ -24,13 +24,13 @@ class ResendOtpProvider extends ChangeNotifier {
     });
   }
 
-  Future<void> stopResendOtpTimer()async {
+  Future<void> stopResendOtpTimer() async {
     _timer?.cancel();
     _timer = null;
   }
 
   @override
-  void dispose(){
+  void dispose() {
     _timer?.cancel();
     super.dispose();
   }
