@@ -1,8 +1,11 @@
 import 'package:ecomapp/app/app_colors.dart';
 import 'package:ecomapp/app/extensions/utility_extension.dart';
 import 'package:ecomapp/app/validators.dart';
+import 'package:ecomapp/features/auth/presentation/providers/resend_otp_provider.dart';
 import 'package:ecomapp/features/auth/presentation/widgets/app_logo.dart';
 import 'package:flutter/material.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:provider/provider.dart';
 
 class VerifyOtpScreen extends StatefulWidget {
   const VerifyOtpScreen({super.key});
@@ -14,104 +17,55 @@ class VerifyOtpScreen extends StatefulWidget {
 }
 
 class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
-  final TextEditingController _emailTEController = TextEditingController();
+  final PinInputController _otpTEController = PinInputController();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final ResendOtpProvider _resendOtpProvider = ResendOtpProvider();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: .all(24.0),
-            child: Form(
-              key: _formKey,
-              autovalidateMode: .onUserInteraction,
-              child: Column(
-                children: [
-                  AppLogo(width: 100, height: 100),
-                  const SizedBox(height: 24),
-                  Text('Sign Up', style: context.textTheme.titleLarge),
-                  Text(
-                    'Create an account with details',
-                    style: context.textTheme.labelLarge,
-                  ),
-
-                  const SizedBox(height: 24),
-                  TextFormField(
-                    textInputAction: .next,
-                    keyboardType: .emailAddress,
-                    decoration: InputDecoration(hintText: 'Email'),
-                    validator: Validators.validateEmail,
-                  ),
-                  const SizedBox(height: 8),
-                  TextFormField(
-                    textInputAction: .next,
-                    validator: (input) => Validators.validateText(
-                      input,
-                      message: "Enter your first name",
+    return ChangeNotifierProvider.value(
+      value: _resendOtpProvider,
+      child: Scaffold(
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: .all(24.0),
+              child: Form(
+                key: _formKey,
+                autovalidateMode: .onUserInteraction,
+                child: Column(
+                  children: [
+                    AppLogo(width: 100, height: 100),
+                    const SizedBox(height: 24),
+                    Text('Verify OTP', style: context.textTheme.titleLarge),
+                    Text(
+                      'Enter the OTP sent to your email',
+                      style: context.textTheme.labelLarge,
                     ),
-                    decoration: InputDecoration(hintText: 'First Name'),
-                  ),
-                  const SizedBox(height: 8),
-                  TextFormField(
-                    textInputAction: .next,
-                    validator: (input) => Validators.validateText(
-                      input,
-                      message: "Enter your last name",
-                    ),
-                    decoration: InputDecoration(hintText: 'Last Name'),
-                  ),
-                  const SizedBox(height: 8),
-                  TextFormField(
-                    textInputAction: .next,
-                    validator: (input) => Validators.validatePhoneNumber(input),
-                    decoration: InputDecoration(hintText: 'Mobile'),
-                  ),
-                  const SizedBox(height: 8),
-                  TextFormField(
-                    textInputAction: .next,
-                    validator: (input) => Validators.validateText(
-                      input,
-                      message: "Enter your city ",
-                    ),
-                    decoration: InputDecoration(hintText: 'City'),
-                  ),
-                  const SizedBox(height: 8),
-                  TextFormField(
-                    textInputAction: .next,
-                    obscureText: true,
-                    obscuringCharacter: '*',
-                    validator: Validators.validatePassword,
-                    decoration: InputDecoration(hintText: 'Password'),
-                  ),
 
-                  const SizedBox(height: 16),
-                  FilledButton(
-                    onPressed: _onTapSingUpButton,
-                    child: Text('Sign UP'),
-                  ),
-                  const SizedBox(height: 16),
-
-                  Row(
-                    mainAxisAlignment: .center,
-                    children: [
-                      Text(
-                        // context.localization.alreadyHaveAnAccount
-                        'Already have an account?',
-                        style: context.textTheme.labelLarge,
+                    const SizedBox(height: 24),
+                    MaterialPinField(
+                      length: 4,
+                      pinController: _otpTEController,
+                      theme: MaterialPinTheme(
+                        shape: MaterialPinShape.outlined,
+                        cellSize: Size(40, 40),
+                        borderRadius: BorderRadius.circular(12),
+                        fillColor: Colors.transparent,
+                        completeFillColor: Colors.grey,
+                        focusedFillColor: AppColors.themeColor.withAlpha(50),
+                        focusedBorderColor: AppColors.themeColor,
                       ),
-                      TextButton(
-                        onPressed: _onTapSignInButton,
-                        child: Text(
-                          //context.localization.signIn
-                          'Sign In',
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+                    ),
+                    const SizedBox(height: 16),
+                    FilledButton(
+                      onPressed: _onTapVerifyButton,
+                      child: Text('Verify'),
+                    ),
+                    const SizedBox(height: 16),
+                  ],
+                ),
               ),
             ),
           ),
@@ -120,18 +74,12 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
     );
   }
 
-  void _onTapSignInButton() {}
-
-  void _onTapSingUpButton() {}
+  void _onTapVerifyButton() {}
 
   @override
   void dispose() {
-    _emailTEController.dispose();
-    _firstNameTEController.dispose();
-    _lastNameTEController.dispose();
-    _mobileTEController.dispose();
-    _cityTEController.dispose();
-    _passwordTEController.dispose();
+    _otpTEController.dispose();
+
     super.dispose();
   }
 }

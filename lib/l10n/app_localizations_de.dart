@@ -10,4 +10,13 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get version => 'Version DE';
+
+  @override
+  String get signUpSubTitle => 'Create an account with details DE';
+
+  @override
+  String get alreadyHaveAnAccount => 'Already Have an account? DE';
+
+  @override
+  String get signIn => 'Sign In DE';
 }

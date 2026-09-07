@@ -1,6 +1,7 @@
 import 'package:ecomapp/app/app_colors.dart';
 import 'package:ecomapp/app/extensions/utility_extension.dart';
 import 'package:ecomapp/app/validators.dart';
+import 'package:ecomapp/features/auth/presentation/screens/verify_otp_screen.dart';
 import 'package:ecomapp/features/auth/presentation/widgets/app_logo.dart';
 import 'package:flutter/material.dart';
 
@@ -109,15 +110,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     mainAxisAlignment: .center,
                     children: [
                       Text(
-                        // context.localization.alreadyHaveAnAccount
-                        'Already have an account?',
+                        context.localization.alreadyHaveAnAccount,
+                        //'Already have an account?',
                         style: context.textTheme.labelLarge,
                       ),
                       TextButton(
                         onPressed: _onTapSignInButton,
                         child: Text(
-                          //context.localization.signIn
-                          'Sign In',
+                          context.localization.signIn,
+                          //'Sign In',
                         ),
                       ),
                     ],
@@ -133,7 +134,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   void _onTapSignInButton() {}
 
-  void _onTapSingUpButton() {}
+  void _onTapSingUpButton() {
+    Navigator.pushNamed(context, VerifyOtpScreen.name);
+  }
 
   @override
   void dispose() {

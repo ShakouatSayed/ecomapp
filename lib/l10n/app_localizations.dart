@@ -105,6 +105,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Version'**
   String get version;
+
+  /// No description provided for @signUpSubTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create an account with details'**
+  String get signUpSubTitle;
+
+  /// No description provided for @alreadyHaveAnAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already Have an account?'**
+  String get alreadyHaveAnAccount;
+
+  /// No description provided for @signIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign In'**
+  String get signIn;
 }
 
 class _AppLocalizationsDelegate

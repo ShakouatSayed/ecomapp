@@ -10,4 +10,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get version => 'Version';
+
+  @override
+  String get signUpSubTitle => 'Create an account with details';
+
+  @override
+  String get alreadyHaveAnAccount => 'Already Have an account?';
+
+  @override
+  String get signIn => 'Sign In';
 }

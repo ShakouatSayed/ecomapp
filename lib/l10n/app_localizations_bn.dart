@@ -9,5 +9,14 @@ class AppLocalizationsBn extends AppLocalizations {
   AppLocalizationsBn([String locale = 'bn']) : super(locale);
 
   @override
-  String get version => 'version';
+  String get version => 'version BN';
+
+  @override
+  String get signUpSubTitle => 'Create an account with details BN';
+
+  @override
+  String get alreadyHaveAnAccount => 'Already Have an account? BN';
+
+  @override
+  String get signIn => 'Sign In BN';
 }
