@@ -1,12 +1,11 @@
 import 'package:ecomapp/app/extensions/utility_extension.dart';
 import 'package:ecomapp/app/providers/local_provider.dart';
 import 'package:ecomapp/app/providers/theme_provider.dart';
-import 'package:ecomapp/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:ecomapp/features/auth/presentation/widgets/app_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'main_nav_holder_screen.dart';
+import '../../../shared/presentation/screens/main_nav_holder_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

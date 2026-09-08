@@ -1,6 +1,5 @@
 import 'package:ecomapp/app/app_routes.dart';
 import 'package:ecomapp/app/app_theme.dart';
-import 'package:ecomapp/app/extensions/localization_extension.dart';
 import 'package:ecomapp/app/providers/local_provider.dart';
 import 'package:ecomapp/app/providers/theme_provider.dart';
 import 'package:ecomapp/features/auth/presentation/screens/splash_screen.dart';
@@ -8,6 +7,8 @@ import 'package:ecomapp/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
+
+import '../features/shared/presentation/providers/main_nab_holder_provider.dart';
 
 class ANBBuyApp extends StatefulWidget {
   const ANBBuyApp({super.key});
@@ -34,6 +35,7 @@ class _ANBBuyAppState extends State<ANBBuyApp> {
       providers: [
         ChangeNotifierProvider.value(value: _localeProvider),
         ChangeNotifierProvider.value(value: _themeProvider),
+        ChangeNotifierProvider(create: (_) => MainNavHolderProvider()),
       ],
       child: Consumer<ThemeProvider>(
         builder: (context, _, _) {

@@ -3,8 +3,7 @@ import 'package:ecomapp/features/auth/presentation/screens/splash_screen.dart';
 import 'package:ecomapp/features/auth/presentation/screens/verify_otp_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../features/auth/presentation/screens/main_nav_holder_screen.dart'
-    show MainNavHolderScreen;
+import '../features/shared/presentation/screens/main_nav_holder_screen.dart';
 import '../features/auth/presentation/screens/sign_in_screen.dart';
 
 class AppRoutes {

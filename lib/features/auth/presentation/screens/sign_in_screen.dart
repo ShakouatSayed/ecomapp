@@ -1,4 +1,4 @@
-import 'package:ecomapp/features/auth/presentation/screens/main_nav_holder_screen.dart';
+import 'package:ecomapp/features/shared/presentation/screens/main_nav_holder_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../app/extensions/utility_extension.dart';
