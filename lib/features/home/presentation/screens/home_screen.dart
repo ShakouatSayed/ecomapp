@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../../shared/presentation/providers/main_nab_holder_provider.dart';
 import '../widgets/home_app_bar.dart';
 import '../widgets/home_caousel_slide.dart';
 import '../widgets/home_catagory_section.dart';
@@ -26,7 +28,12 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 8),
             HomeCarouselSlide(),
             const SizedBox(height: 12),
-            HomeSectionHeader(title: 'Category', onTapSeeAll: () {}),
+            HomeSectionHeader(
+              title: 'Category',
+              onTapSeeAll: () {
+                context.read<MainNavHolderProvider>().moveToCategory();
+              },
+            ),
             HomeCatagorySection(),
           ],
         ),
